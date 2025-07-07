@@ -1,0 +1,135 @@
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Groovy Baby RSVP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: radial-gradient(circle, #ffd3f4, #f9c1f1, #f6d6f6, #d0e1fc, #fce7b0);
+            font-family: 'Oleo Script', cursive;
+            color: #5f3c91;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+        }
+        h2 {
+            font-size: 3.5em;
+            color: #ff7e5f;
+            text-shadow: 2px 2px #fff5ee;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            display: inline-block;
+            padding: 40px;
+            box-shadow: 0 0 25px #ffb6c1;
+        }
+        label, input, textarea {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 12px auto;
+            font-size: 1.2em;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 12px auto;
+        }
+        .radio-group label {
+            display: inline;
+            width: auto;
+        }
+        input[type="radio"] {
+            width: auto;
+        }
+        input, textarea {
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        button {
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-size: 1.4em;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+        button:hover {
+            background: linear-gradient(to right, #ff5e62, #ff9966);
+        }
+        .decor {
+            position: absolute;
+            width: 100px;
+        }
+        .butterfly {
+            top: 20px;
+            right: 20px;
+        }
+        .flower-left {
+            bottom: 30px;
+            left: 30px;
+        }
+        .flower-right {
+            bottom: 30px;
+            right: 30px;
+        }
+        .registry {
+            margin-top: 40px;
+            font-size: 1.5em;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 12px;
+        }
+        .registry a {
+            color: white;
+            text-decoration: none;
+        }
+        .registry a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.imgur.com/6d9UqGI.png" class="decor butterfly" style="position:absolute;top:20px;right:20px;width:100px;">
+    <img src="https://i.imgur.com/TftuUKF.png" class="decor flower-left" style="position:absolute;bottom:30px;left:30px;width:80px;">
+    <img src="https://i.imgur.com/TftuUKF.png" class="decor flower-right" style="position:absolute;bottom:30px;right:30px;width:80px;">
+
+    <h2>Groovy Baby Shower RSVP</h2>
+    <form action="/rsvp" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label>Will you attend?</label>
+        <div class="radio-group">
+            <input type="radio" id="yes" name="attending" value="Yes" required>
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="attending" value="No">
+            <label for="no">No</label>
+        </div>
+
+        <label for="guests_count">Number of guests (excluding you):</label>
+        <input type="number" id="guests_count" name="guests_count" min="0" required>
+
+        <label for="dietary_notes">Dietary restrictions or notes:</label>
+        <textarea id="dietary_notes" name="dietary_notes" rows="4" cols="50"></textarea>
+
+        <button type="submit">Submit RSVP</button>
+    </form>
+
+    <div class="registry">
+        💝 View our Baby Registry: <a href="https://my.babylist.com/livia-relva" target="_blank"><br>Livia's Babylist Registry</a>
+    </div>
+</body>
+</html>

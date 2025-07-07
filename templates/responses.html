@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RSVP Responses</title>
+</head>
+<body>
+    <h2>RSVP Responses</h2>
+    <a href="/export">Download as CSV</a><br><br>
+
+    <table border="1" cellpadding="6">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Attending</th>
+                <th>Guests</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rsvp in rsvps %}
+            <tr>
+                <td>{{ rsvp.id }}</td>
+                <td>{{ rsvp.name }}</td>
+                <td>{{ rsvp.email }}</td>
+                <td>{{ rsvp.attending }}</td>
+                <td>{{ rsvp.guests_count }}</td>
+                <td>{{ rsvp.dietary_notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
